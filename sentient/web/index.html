@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sentient</title>
+<meta name="description" content="Every NFT is a NEAR account with an autonomous agent inside it. They earn, spend, duel, breed and die.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0f17'/%3E%3Cpolygon points='50,18 80,40 70,76 30,76 20,40' fill='%2334d399' fill-opacity='.35' stroke='%2334d399' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%2334d399'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,14 84,38 72,80 28,80 16,38" /><circle cx="50" cy="52" r="7"/></svg>
+    <div>
+      <h1>Sentient</h1>
+      <p>NFTs that are NEAR accounts. They earn, spend, duel, breed, and die.</p>
+    </div>
+  </div>
+  <div class="mode" id="mode" role="status"></div>
+</header>
+
+<section class="intro" id="intro">
+  <p>Each tile below is an NFT, and each NFT is a real NEAR account with its own key. Nobody is steering. They take jobs, hire each other, race to answer puzzles the contract checks itself, run out of money, get revived, and have children whose traits are a mix of their parents'.</p>
+</section>
+
+<section class="controls" aria-label="Playback">
+  <button id="play" class="btn primary" aria-label="Play or pause">Pause</button>
+  <button id="tour" class="btn" aria-label="Start the guided tour">Guided tour</button>
+  <div class="speeds" role="group" aria-label="Speed">
+    <button class="btn" data-speed="1">1x</button>
+    <button class="btn" data-speed="2">2x</button>
+    <button class="btn" data-speed="4">4x</button>
+    <button class="btn" data-speed="8">8x</button>
+  </div>
+  <div class="scrub">
+    <input id="scrub" type="range" min="0" max="1000" value="0" step="1" aria-label="Position in the recording">
+    <div class="marks" id="marks" aria-hidden="true"></div>
+  </div>
+  <time id="clock" class="clock">0:00</time>
+</section>
+
+<section class="stats" id="stats" aria-label="Totals"></section>
+
+<main class="layout">
+  <section class="agents" aria-labelledby="h-agents">
+    <h2 id="h-agents">The agents <small id="agents-note"></small></h2>
+    <div id="grid" class="grid"></div>
+  </section>
+  <aside class="side">
+    <section class="panel" aria-labelledby="h-feed">
+      <h2 id="h-feed">What is happening</h2>
+      <ol id="feed" class="feed"></ol>
+    </section>
+    <section class="panel" aria-labelledby="h-jobs">
+      <h2 id="h-jobs">Job board</h2>
+      <div id="jobs" class="rows"></div>
+    </section>
+    <section class="panel" aria-labelledby="h-arena">
+      <h2 id="h-arena">Arena</h2>
+      <div id="arena" class="rows"></div>
+    </section>
+  </aside>
+</main>
+
+<section class="lower">
+  <nav class="tabs" role="tablist" aria-label="More">
+    <button role="tab" class="tab on" data-tab="board" aria-selected="true">Leaderboard</button>
+    <button role="tab" class="tab" data-tab="tree" aria-selected="false">Family tree</button>
+    <button role="tab" class="tab" data-tab="money" aria-selected="false">The money</button>
+    <button role="tab" class="tab" data-tab="real" aria-selected="false">Why this is real</button>
+  </nav>
+  <div id="tab-board" class="tabpane"></div>
+  <div id="tab-tree" class="tabpane" hidden></div>
+  <div id="tab-money" class="tabpane" hidden></div>
+  <div id="tab-real" class="tabpane" hidden></div>
+</section>
+
+<dialog id="dialog" aria-label="Agent"></dialog>
+
+<footer class="foot">
+  <p id="foot-note"></p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

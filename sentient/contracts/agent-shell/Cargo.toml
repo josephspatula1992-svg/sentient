@@ -1,0 +1,21 @@
+[package]
+name = "agent-shell"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.86"
+description = "The few lines of code that live on every Sentient agent account so its registry can rotate its keys and recover its gas"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+near-sys = "=0.2.9"
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true

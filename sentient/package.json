@@ -1,0 +1,38 @@
+{
+  "name": "sentient",
+  "version": "1.0.0",
+  "description": "Sentient: every NFT is a NEAR sub-account with an autonomous agent that earns, spends, duels, breeds and can die.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test \"dist/test/*.test.js\"",
+    "e2e": "node dist/test/e2e/e2e.js",
+    "rehearse": "node dist/test/e2e/rehearsal.js",
+    "demo": "node dist/scripts/demo.js",
+    "build:contract": "bash contracts/sentient/build.sh",
+    "test:contract": "cargo test --manifest-path contracts/sentient/Cargo.toml",
+    "deploy": "node dist/scripts/deploy.js",
+    "mint": "node dist/scripts/mint.js",
+    "run-agent": "node dist/scripts/run-agent.js",
+    "post-job": "node dist/scripts/post-job.js",
+    "review-job": "node dist/scripts/review-job.js",
+    "serve": "node dist/src/serve.js",
+    "record": "node scripts/record-video.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "near-api-js": "^7.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "near-sandbox": "^0.2.1",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
